@@ -16,6 +16,12 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _headCheckergRadius;
     [SerializeField] private Transform _headChecker;
 
+    [Header("Animation")]
+    [SerializeField] private Animator _animator;
+    [SerializeField] private string _runAnimatorKey;
+    [SerializeField] private string _jumpAnimatorKey;
+    [SerializeField] private string _crouchAnimatorKey;
+
     private float _direction;
     private bool _jump;
     private bool _crawl;
@@ -26,9 +32,10 @@ public class PlayerMover : MonoBehaviour
     }
 
     private void Update()
-    {
+    {  
         _direction = Input.GetAxisRaw("Horizontal");
 
+        _animator.SetFloat(_runAnimatorKey, Mathf.Abs(_direction));
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _jump = true;
@@ -60,6 +67,9 @@ public class PlayerMover : MonoBehaviour
             _rigidBody.AddForce(Vector2.up * _jumpForce);
             _jump = false;
         }
+
+        _animator.SetBool(_jumpAnimatorKey, !canJump);
+        _animator.SetBool(_crouchAnimatorKey, !_headCollider.enabled);
     }
 
     private void OnDrawGizmos()
