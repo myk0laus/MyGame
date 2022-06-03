@@ -208,6 +208,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1067863201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1067863202}
+  m_Layer: 6
+  m_Name: FireballPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1067863202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067863201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.785, y: -0.619, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3126628074787049390}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1164008596
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +471,7 @@ GameObject:
   - component: {fileID: 3126628074787049390}
   - component: {fileID: 3126628074787049391}
   - component: {fileID: 3126628074787047504}
+  - component: {fileID: 1335150503695545540}
   - component: {fileID: 3126628074787047509}
   - component: {fileID: 2911607289719385764}
   - component: {fileID: 3126628074787047505}
@@ -468,6 +499,7 @@ Transform:
   - {fileID: 3126628075016822744}
   - {fileID: 3126628076176674011}
   - {fileID: 3126628074970798691}
+  - {fileID: 1067863202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -536,23 +568,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 3126628074787047505}
   _speed: 5
-  _jumpForce: 500
+  _jumpForce: 700
   _groundChecker: {fileID: 3126628075016822744}
   _groundCheckerRadius: 0.15
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 1920
+    m_Bits: 6016
   _whatIsCell:
     serializedVersion: 2
     m_Bits: 128
   _headCollider: {fileID: 3126628074787047507}
   _headCheckergRadius: 0.33
   _headChecker: {fileID: 3126628076176674011}
+  _faceRight: 1
   _animator: {fileID: 3126628074787047506}
   _runAnimatorKey: Speed
   _jumpAnimatorKey: Jump
   _crouchAnimatorKey: Crouch
-  _faceRight: 1
+  _attackAnimatorKey: Attack
+  _fireball: {fileID: 3072344907046835123, guid: bc6d3a06d0e036046a78ecadb0b51742, type: 3}
+  _fireballPos: {fileID: 1067863202}
+  _fireballSpeed: 10
+--- !u!114 &1335150503695545540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126628074787049389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abe02f99fa9d164d8a4b9bb96036651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3126628074787047509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,38 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191f0aa896ab4cc478dbfd9b889c7840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpBar: {fileID: 1127813608}
   _maxHp: 100
-  _hpBar: {fileID: 3126628075417357132}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0.13088848, b: 0, a: 1}
-    key1: {r: 0.98289114, g: 1, b: 0.13679248, a: 1}
-    key2: {r: 0.18607318, g: 1, b: 0, a: 0}
-    key3: {r: 0.18607318, g: 1, b: 0, a: 0}
-    key4: {r: 0.18607318, g: 1, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 32768
-    ctime2: 65535
-    ctime3: 65535
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  fill: {fileID: 3126628074514110171}
 --- !u!114 &2911607289719385764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manaBar: {fileID: 220104813}
-  _manaShot: 100
+  _manaShot: 10
   _maxMana: 100
 --- !u!50 &3126628074787047505
 Rigidbody2D:
@@ -900,6 +918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3126628075417357133}
   - component: {fileID: 3126628075417357132}
+  - component: {fileID: 1127813608}
   m_Layer: 5
   m_Name: HpBar
   m_TagString: Untagged
@@ -979,6 +998,49 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1127813608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126628075417357130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e425273dd1c4240b66956c468be9a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 3126628075417357132}
+  _fill: {fileID: 3126628074514110171}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.8018868, g: 0.11021015, b: 0, a: 1}
+    key1: {r: 1, g: 0.9225849, b: 0, a: 1}
+    key2: {r: 0.083881676, g: 0.8301887, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1 &3126628076176674008
 GameObject:
   m_ObjectHideFlags: 0

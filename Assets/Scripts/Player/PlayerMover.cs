@@ -1,6 +1,4 @@
 using UnityEngine;
-using TMPro;
-
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMover : MonoBehaviour
@@ -15,43 +13,33 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private Collider2D _headCollider;
     [SerializeField] private float _headCheckergRadius;
     [SerializeField] private Transform _headChecker;
-
+    [SerializeField] private bool _faceRight;
 
     [Header("Animation")]
     [SerializeField] private Animator _animator;
     [SerializeField] private string _runAnimatorKey;
     [SerializeField] private string _jumpAnimatorKey;
     [SerializeField] private string _crouchAnimatorKey;
+    //[SerializeField] private string _attackAnimatorKey;
 
-    //[Header("UI")]
-    //[SerializeField] private TMP_Text _coinsAmountText;
+    //[Header("Attack")]
+    //[SerializeField] private GameObject _fireball;
+    //[SerializeField] private Transform _fireballPos;
+    //[SerializeField] private float _fireballSpeed;
 
-
-    [SerializeField] private bool _faceRight;
-    
     private float _horizontalDirection;
     private float _verticaDirection;
     private bool _jump;
     private bool _crawl;
-   // private int _coinsAmount;
+    //private bool _isAttacking;
 
-
-    //public int CoinsAmount {
-    //    get => _coinsAmount;
-    //    set
-    //    {
-    //        _coinsAmount = value;
-    //        _coinsAmountText.text = value.ToString();
-    //    }
-    //}
-    
+    public bool FaceRight => _faceRight;
     public bool CanClimb { private get; set; }
 
     void Start()
     {
         
-        //CoinsAmount = 0;
-    } 
+    }
 
     private void Update()
     {
@@ -75,6 +63,12 @@ public class PlayerMover : MonoBehaviour
         }
 
         _crawl = Input.GetKey(KeyCode.LeftControl);
+
+        //if (Input.GetKey(KeyCode.E))
+        //{
+        //    StartAttack();
+
+        //}
     }
 
     private void FixedUpdate()
@@ -91,7 +85,7 @@ public class PlayerMover : MonoBehaviour
         {
             _rigidBody.gravityScale = 2.5f;
         }
-         
+
         bool canJump = Physics2D.OverlapCircle(_groundChecker.position, _groundCheckerRadius, _whatIsGround);
         bool canStand = !Physics2D.OverlapCircle(_headChecker.position, _headCheckergRadius, _whatIsCell);
 
@@ -106,6 +100,28 @@ public class PlayerMover : MonoBehaviour
         _animator.SetBool(_jumpAnimatorKey, !canJump);
         _animator.SetBool(_crouchAnimatorKey, !_headCollider.enabled);
     }
+
+    //public void StartAttack()
+    //{
+    //    if (_isAttacking)
+    //        return;
+    //    _isAttacking = true;
+    //    _animator.SetBool(_attackAnimatorKey, true);
+    //}
+
+    //private void Attack()
+    //{
+    //    GameObject fireball = Instantiate(_fireball, _fireballPos.position, Quaternion.identity);
+    //    fireball.GetComponent<Rigidbody2D>().velocity = transform.right * _fireballSpeed;
+    //    fireball.GetComponent<SpriteRenderer>().flipX = !_faceRight;
+    //    Destroy(fireball, 3f);
+    //}
+
+    //private void EndAttack()
+    //{
+    //    _isAttacking = false;
+    //    _animator.SetBool(_attackAnimatorKey, false);
+    //}
 
     private void FlipX()
     {

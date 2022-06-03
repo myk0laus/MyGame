@@ -4,9 +4,10 @@ using UnityEngine;
 public class ManaController : MonoBehaviour
 {
     [SerializeField] private ManaBar _manaBar;
-    [SerializeField] private int _manaShot;
     [SerializeField] private int _maxMana;
     private int currentMana;
+
+    public int CurrentMana => currentMana;
 
     private void Start()
     {
@@ -15,13 +16,7 @@ public class ManaController : MonoBehaviour
         StartCoroutine(RestoreMana());
     }
 
-    private void Update()
-    {       
-        if (Input.GetKeyDown(KeyCode.E))
-            UseMana(_manaShot);
-    }
-
-    private void UseMana(int manaUsed)
+    public void UseMana(int manaUsed)
     {
         currentMana -= manaUsed;
         if (currentMana < 0)
