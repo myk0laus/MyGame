@@ -50,7 +50,7 @@ public class ManaController : MonoBehaviour
         {
             if (currentMana < _maxMana)
             {
-                currentMana+=2;
+                currentMana += 2;
                 _manaBar.SetMana(currentMana);
                 yield return new WaitForSeconds(1f);
             }

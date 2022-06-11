@@ -10,7 +10,7 @@ public class CardsPanel : MonoBehaviour
     [SerializeField] private Card _card;
     [SerializeField] private GameObject _gameTimer;
     [SerializeField] private GatesOnStart _gates;
- 
+
     void Start()
     {
         _panelOfCards.SetActive(true);
@@ -28,11 +28,11 @@ public class CardsPanel : MonoBehaviour
 
     private void Update()
     {
-        if(_card.CountChosed >= _maxCards)
-        {      
+        if (_card.CountChosed >= _maxCards)
+        {
             Invoke(nameof(InactivePanel), 1f);
             _gates.CanMoveUp = true;
             _gameTimer.SetActive(true);
-        }       
+        }
     }
 }

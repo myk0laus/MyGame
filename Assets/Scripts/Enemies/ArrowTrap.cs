@@ -5,11 +5,11 @@ public class ArrowTrap : MonoBehaviour
     [SerializeField] private float _attackCoolDown;
     [SerializeField] private Transform _firtePoint;
     [SerializeField] private GameObject[] _arrows;
-    private float coolDownTimer;
+    private float _coolDownTimer;
 
     private void Attack()
     {
-        coolDownTimer = 0;
+        _coolDownTimer = 0;
 
         _arrows[FindFireball()].transform.position = _firtePoint.position;
         _arrows[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
@@ -27,9 +27,9 @@ public class ArrowTrap : MonoBehaviour
 
     private void Update()
     {
-        coolDownTimer += Time.deltaTime;
+        _coolDownTimer += Time.deltaTime;
 
-        if (coolDownTimer >= _attackCoolDown)
+        if (_coolDownTimer >= _attackCoolDown)
             Attack();
     }
 }

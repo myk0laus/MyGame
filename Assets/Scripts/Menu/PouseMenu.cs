@@ -6,14 +6,14 @@ public class PouseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
 
     public static bool GameIsPaused = false;
-    
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))                 
-            if (GameIsPaused)           
-                Resume();        
-            else           
-               Pause();               
+        if (Input.GetKeyDown(KeyCode.Escape))
+            if (GameIsPaused)
+                Resume();
+            else
+                Pause();
     }
 
     public void Resume()
@@ -41,4 +41,3 @@ public class PouseMenu : MonoBehaviour
         Application.Quit();
     }
 }
- 

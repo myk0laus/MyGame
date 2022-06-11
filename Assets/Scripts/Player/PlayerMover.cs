@@ -33,7 +33,6 @@ public class PlayerMover : MonoBehaviour
             _jumpForce = value;
         }
     }
-    //public float Speed => _speed;
 
     public bool FaceRight => _faceRight;
     public bool CanClimb { private get; set; }

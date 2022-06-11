@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemiesController : MonoBehaviour
@@ -9,8 +7,8 @@ public class EnemiesController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _hp -= damage;
-        if (_hp <= 0)        
-            Destroy(gameObject);      
+        if (_hp <= 0)
+            Destroy(gameObject);
     }
 }
 

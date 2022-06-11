@@ -13,7 +13,7 @@ public class JumpingCircle : MonoBehaviour
         {
             _animator.SetBool(_distruptionAnimatorKey, true);
             player._rigidBody.velocity = Vector2.up * _jumpForce;
-        }      
+        }
     }
 
     public void SetDistrubFalse()
