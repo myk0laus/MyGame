@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Box : MonoBehaviour
@@ -8,7 +6,7 @@ public class Box : MonoBehaviour
     {
         Fireball _fireball = collision.collider.GetComponent<Fireball>();
 
-        if(_fireball != null)
+        if (_fireball != null)
         {
             Destroy(gameObject);
         }

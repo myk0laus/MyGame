@@ -11,7 +11,7 @@ public class CheckPoint : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMover player = collision.GetComponent<PlayerMover>();
-        if(player != null) 
+        if (player != null)
             _animator.SetBool(_flagAppearKey, true);
 
         Invoke(nameof(FinishGame), 1f);

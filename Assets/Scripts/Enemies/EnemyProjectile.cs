@@ -5,10 +5,10 @@ public class EnemyProjectile : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _resetTime;
     [SerializeField] private int _damage;
-    private float lifetime;
+    private float _lifetime;
     public void ActivateProjectile()
     {
-        lifetime = 0;
+        _lifetime = 0;
         gameObject.SetActive(true);
     }
 
@@ -17,8 +17,8 @@ public class EnemyProjectile : MonoBehaviour
         float moveSpeed = _speed * Time.deltaTime;
         transform.Translate(moveSpeed, 0, 0);
 
-        lifetime += Time.deltaTime;
-        if (lifetime > _resetTime)
+        _lifetime += Time.deltaTime;
+        if (_lifetime > _resetTime)
         {
             gameObject.SetActive(false);
         }
@@ -30,7 +30,7 @@ public class EnemyProjectile : MonoBehaviour
         HpManager player = collision.GetComponent<HpManager>();
         if (player != null)
         {
-            player.TakeDamage(_damage);  
+            player.TakeDamage(_damage);
         }
         gameObject.SetActive(false);
     }

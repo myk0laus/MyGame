@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SawMover : MonoBehaviour
@@ -29,7 +27,7 @@ public class SawMover : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         HpManager player = collision.GetComponent<HpManager>();
-        if(player != null)
+        if (player != null)
         {
             player.TakeDamage(_damage);
         }

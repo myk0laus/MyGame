@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -16,16 +15,16 @@ public class HpManager : MonoBehaviour
         get => _currentHp;
         set
         {
-            if(value >= _maxHp)           
-                value = _maxHp;        
+            if (value >= _maxHp)
+                value = _maxHp;
 
             _currentHp = value;
-            _hpBar.SetHp(_currentHp);       
+            _hpBar.SetHp(_currentHp);
         }
     }
 
     private void Start()
-    {        
+    {
         CurrentHp = _maxHp;
         _hpBar.SetMaxHp(_maxHp);
 
@@ -46,7 +45,7 @@ public class HpManager : MonoBehaviour
     {
         int missingHp = _maxHp - CurrentHp;
         int pointsToAdd = missingHp > hpPoints ? hpPoints : missingHp;
-        StartCoroutine (RestoreHp(pointsToAdd));
+        StartCoroutine(RestoreHp(pointsToAdd));
     }
 
     private IEnumerator RestoreHp(int pointsToAdd)
@@ -54,7 +53,7 @@ public class HpManager : MonoBehaviour
         while (pointsToAdd != 0)
         {
             pointsToAdd--;
-            CurrentHp++;           
+            CurrentHp++;
             yield return new WaitForSeconds(0.2f);
         }
     }
