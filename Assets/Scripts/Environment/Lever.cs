@@ -4,7 +4,7 @@ using UnityEngine;
 public class Lever : MonoBehaviour
 {
     [SerializeField] private Sprite _activeSprite;
-    [SerializeField] private MoneyChest _chest;
+    [SerializeField] private Gates _gates;
 
     private SpriteRenderer _spriteRenderer;
     private Sprite _inactiveSprite;
@@ -21,7 +21,7 @@ public class Lever : MonoBehaviour
         if (player != null)
         {
             _spriteRenderer.sprite = _activeSprite;
-            _chest.Activated = true;
+            _gates.Activated = true;
         }
     }
 

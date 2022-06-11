@@ -5,6 +5,8 @@ using System.Collections;
 
 public class HpManager : MonoBehaviour
 {
+    [SerializeField] private Transform _bloodPos;
+    [SerializeField] private GameObject _bloodParticle;
     [SerializeField] private HpBar _hpBar;
     [SerializeField] private int _maxHp;
     private int _currentHp;
@@ -31,7 +33,8 @@ public class HpManager : MonoBehaviour
 
     public void TakeDamage(int damage, float pushPower = 0, float enemyPosX = 0)
     {
-        CurrentHp -= damage;     
+        CurrentHp -= damage;
+        Instantiate(_bloodParticle, _bloodPos.position, Quaternion.identity);
         if (_currentHp <= 0)
         {
             gameObject.SetActive(false);
