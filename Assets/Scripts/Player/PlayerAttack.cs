@@ -15,7 +15,16 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _manaController.CurrentMana >= _manaForShot)
+        //if (Input.GetKeyDown(KeyCode.E) && _manaController.CurrentMana >= _manaForShot)
+        //{
+        //    StartAttack();
+        //    _manaController.UseMana(_manaForShot);
+        //}
+    }
+
+    public void AttackButton()
+    {
+        if(_manaController.CurrentMana >= _manaForShot)
         {
             StartAttack();
             _manaController.UseMana(_manaForShot);
