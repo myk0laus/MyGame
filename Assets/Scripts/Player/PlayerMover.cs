@@ -21,6 +21,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private string _jumpAnimatorKey;
     [SerializeField] private string _crouchAnimatorKey;
 
+    public Joystick joystick;
     private float _horizontalDirection;
     private float _verticaDirection;
     private bool _jump;
@@ -39,15 +40,15 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
-        _horizontalDirection = Input.GetAxisRaw("Horizontal");
-        _verticaDirection = Input.GetAxisRaw("Vertical");
+        _horizontalDirection = joystick.Horizontal;
+        _verticaDirection = joystick.Vertical;
 
         _animator.SetFloat(_runAnimatorKey, Mathf.Abs(_horizontalDirection));
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _jump = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    _jump = true;
+        //}
 
         if (_horizontalDirection < 0 && _faceRight)
         {
@@ -58,7 +59,8 @@ public class PlayerMover : MonoBehaviour
             FlipX();
         }
 
-        _crawl = Input.GetKey(KeyCode.LeftControl);
+        //_crawl = Input.GetKey(KeyCode.LeftControl);
+        //_crawl = false;
     }
 
     private void FixedUpdate()
@@ -90,6 +92,22 @@ public class PlayerMover : MonoBehaviour
         _animator.SetBool(_jumpAnimatorKey, !canJump);
         _animator.SetBool(_crouchAnimatorKey, !_headCollider.enabled);
     }
+
+    public void Jump()
+    {
+        _jump = true;
+    }
+
+    public void SetCrawlTrue()
+    {
+        _crawl = true;
+    }
+
+    public void SetCrawlFalse()
+    {
+        _crawl = false;
+    }
+
     private void FlipX()
     {
         _faceRight = !_faceRight;
