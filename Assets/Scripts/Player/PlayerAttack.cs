@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject _fireball;
     [SerializeField] private Transform __fireballPos;
     [SerializeField] private float _speed;
+    [SerializeField] private AudioClip _fireballSound;
 
     private bool _isAttacking;
 
@@ -44,6 +45,7 @@ public class PlayerAttack : MonoBehaviour
         GameObject fireball = Instantiate(_fireball, __fireballPos.position, Quaternion.identity);
         fireball.GetComponent<Rigidbody2D>().velocity = transform.right * _speed;
         fireball.GetComponent<SpriteRenderer>().flipX = !playerMover.FaceRight;
+        SoundManager.instance.PlaySound(_fireballSound);
         Destroy(fireball, 3f);
     }
 

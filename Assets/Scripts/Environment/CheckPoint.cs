@@ -27,5 +27,4 @@ public class CheckPoint : MonoBehaviour
     {
         _animator.SetBool(_flagIdle, true);
     }
-
 }

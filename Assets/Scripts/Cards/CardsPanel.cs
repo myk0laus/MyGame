@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardsPanel : MonoBehaviour
 {
@@ -7,13 +8,14 @@ public class CardsPanel : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private List<GameObject> _cards = new List<GameObject>();
     [SerializeField] private int _maxCards;
-    [SerializeField] private Card _card;
+    [SerializeField] private int _maxCardsForChoose;
+    [SerializeField] private CardForPlayer _card;
     [SerializeField] private GameObject _gameTimer;
     [SerializeField] private GatesOnStart _gates;
 
     void Start()
     {
-        _panelOfCards.SetActive(true);
+        //_panelOfCards.SetActive(true);
         for (int i = 0; i < _maxCards; i++)
         {
             GameObject someCard = Instantiate(_cards[Random.Range(0, _cards.Count)], _container.position, Quaternion.identity);
@@ -28,7 +30,7 @@ public class CardsPanel : MonoBehaviour
 
     private void Update()
     {
-        if (_card.CountChosed >= _maxCards)
+        if (_card.CountChosed >= _maxCardsForChoose)
         {
             Invoke(nameof(InactivePanel), 1f);
             _gates.CanMoveUp = true;

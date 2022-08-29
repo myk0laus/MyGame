@@ -8,6 +8,7 @@ public class HpManager : MonoBehaviour
     [SerializeField] private GameObject _bloodParticle;
     [SerializeField] private HpBar _hpBar;
     [SerializeField] private int _maxHp;
+    [SerializeField] private AudioClip _takeDamakeSound;
     private int _currentHp;
 
     public int CurrentHp
@@ -32,6 +33,7 @@ public class HpManager : MonoBehaviour
 
     public void TakeDamage(int damage, float pushPower = 0, float enemyPosX = 0)
     {
+        SoundManager.instance.PlaySound(_takeDamakeSound);
         CurrentHp -= damage;
         Instantiate(_bloodParticle, _bloodPos.position, Quaternion.identity);
         if (_currentHp <= 0)

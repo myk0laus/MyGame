@@ -5,7 +5,6 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text _timerText;
     private float timerTime;
-
     public float FinishValue => timerTime;
 
     void Start()

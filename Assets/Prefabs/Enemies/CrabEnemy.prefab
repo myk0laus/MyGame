@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2324110480202072470}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2324110480202072469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.072, y: -0.157, z: 0}
+  m_LocalPosition: {x: 0.0824, y: -0.1456, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2324110482068505973}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2324110482068505974}
   - component: {fileID: 2324110482068505975}
   - component: {fileID: 2324110482068505960}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: CrabEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 19fc4ff85394f44dc9614c956cd2ce12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -131,10 +131,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundDetection: {fileID: 2324110480202072470}
-  _distance: 5
+  _distance: 8
   _speed: 3
   _movingRight: 1
-  _damage: 0
+  _damage: 10
 --- !u!114 &3702625460599432161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 10
+  _enemyDeath: {fileID: 8300000, guid: 51caf3e1f8c4444449623c9163b628d5, type: 3}
 --- !u!50 &2324110482068505974
 Rigidbody2D:
   serializedVersion: 4
