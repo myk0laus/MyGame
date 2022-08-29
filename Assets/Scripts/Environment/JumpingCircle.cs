@@ -5,9 +5,11 @@ public class JumpingCircle : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private string _distruptionAnimatorKey;
     [SerializeField] private float _jumpForce;
+    [SerializeField] private AudioClip _audioClip;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        SoundManager.instance.PlaySound(_audioClip);
         PlayerMover player = collision.collider.GetComponent<PlayerMover>();
         if (player != null)
         {

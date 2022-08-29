@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SawMover : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class SawMover : MonoBehaviour
     [SerializeField] private Transform _startPos;
     [SerializeField] private int _damage;
     [SerializeField] private float _speed;
+    [SerializeField] private float _kickPower;
+    [SerializeField] private List <AudioClip> _sawSounds;
 
     Vector2 _moveTo;
 
@@ -26,10 +29,12 @@ public class SawMover : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.instance.PlaySound(_sawSounds[Random.Range(0, _sawSounds.Count)]);
         HpManager player = collision.GetComponent<HpManager>();
         if (player != null)
         {
             player.TakeDamage(_damage);
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.up * _kickPower;
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class Card : MonoBehaviour
             player.JumpForce += 50;
         }
 
-        Destroy(gameObject, 1f);
+        //Destroy(gameObject, 1f);
+        GetComponent<Button>().enabled = false;
     }
 }

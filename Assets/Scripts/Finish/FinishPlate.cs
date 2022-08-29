@@ -6,7 +6,7 @@ public class FinishPlate : MonoBehaviour
 {
     [SerializeField] private TMP_Text _finishValue;
     [SerializeField] private GameTimer _gameTimer;
-    [SerializeField] private Card _card;
+    [SerializeField] private CardForPlayer _card;
 
     private void Update()
     {

@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Card _card;
+    [SerializeField] private CardForPlayer _card;
+    [SerializeField] private AudioMixerGroup Mixer;
+
     public void PlayGame()
     {
         _card.SetCountChoosedZero();
@@ -13,5 +16,10 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ChangeVolume(float volume)
+    {
+        Mixer.audioMixer.SetFloat("Volume", Mathf.Lerp(-80, 20, volume));
     }
 }
