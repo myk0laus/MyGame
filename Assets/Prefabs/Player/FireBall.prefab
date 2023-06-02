@@ -263,5 +263,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 100
-  source: {fileID: 373706725109943908}
   _soundExplosion: {fileID: 8300000, guid: 942e1ada364e43341ad5510f807601a8, type: 3}
+  _explosionEffect: {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
