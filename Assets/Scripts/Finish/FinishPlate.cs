@@ -22,7 +22,7 @@ public class FinishPlate : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
         _card.SetCountChoosedZero();
     }

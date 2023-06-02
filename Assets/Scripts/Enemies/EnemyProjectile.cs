@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _resetTime;
     [SerializeField] private int _damage;
+    [SerializeField] private List<AudioClip> _audioImpacts;
     private float _lifetime;
     public void ActivateProjectile()
     {
@@ -30,7 +32,9 @@ public class EnemyProjectile : MonoBehaviour
         if (player != null)
         {
             player.TakeDamage(_damage);
+            SoundManager.instance.PlaySound(_audioImpacts[Random.Range(0,_audioImpacts.Count)]);
         }
         gameObject.SetActive(false);
+
     }
 }

@@ -145,3 +145,4 @@ MonoBehaviour:
   _animator: {fileID: 1142758092538829672}
   _flagAppearKey: FlagAppear
   _flagIdle: FlagIdle
+  _finishSound: {fileID: 8300000, guid: 7112fa37b3b73b6429b84623f7d0aa94, type: 3}

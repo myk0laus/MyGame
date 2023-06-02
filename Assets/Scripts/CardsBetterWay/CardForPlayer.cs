@@ -21,6 +21,7 @@ public class CardForPlayer : MonoBehaviour
         _nameOfCard.text = _cardStorage._storageNameOfCard;
         _cardSprite.sprite = _cardStorage._storageSpriteOfCard;
         _changeAbility.text = _cardStorage._storageChangeAbility;
+        SetCountChoosedZero();
     }
     private void Update()
     {

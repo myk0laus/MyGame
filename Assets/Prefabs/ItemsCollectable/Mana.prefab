@@ -113,3 +113,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manaPotion: 25
+  _pickUpSound: {fileID: 8300000, guid: 49430ddb6e9e45744bbf5943bb822ffe, type: 3}
