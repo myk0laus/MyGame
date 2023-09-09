@@ -8,6 +8,4 @@ public class CardStorage : ScriptableObject
     public Sprite _storageSpriteOfCard;
     public string _storageChangeAbility;
     public Abilities _abilities;
-
-
 }
