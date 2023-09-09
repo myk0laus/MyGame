@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CardsPanel : MonoBehaviour
 {
@@ -15,7 +14,6 @@ public class CardsPanel : MonoBehaviour
 
     void Start()
     {
-        //_panelOfCards.SetActive(true);
         for (int i = 0; i < _maxCards; i++)
         {
             GameObject someCard = Instantiate(_cards[Random.Range(0, _cards.Count)], _container.position, Quaternion.identity);

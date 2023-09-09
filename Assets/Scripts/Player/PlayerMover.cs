@@ -55,10 +55,8 @@ public class PlayerMover : MonoBehaviour
         if (_animator.GetBool(_hurtAnimatorKey))
         {
             return;
-        }
+        }     
 
-        //_horizontalDirection = joystick.Horizontal;
-        //_verticaDirection = joystick.Vertical;        
         _horizontalDirection = Input.GetAxis("Horizontal");
         _verticaDirection = Input.GetAxis("Vertical");
 
@@ -93,14 +91,6 @@ public class PlayerMover : MonoBehaviour
             }
             return;
         }
-
-        //if (_animator.GetBool(_hurtAnimationKey))
-        //{
-        //    if (Time.time - _lastPushTime > 0.2f && canJump)
-        //        _animator.SetBool(_hurtAnimationKey, false);
-
-        //    return;
-        //}
 
         bool canStand = !Physics2D.OverlapCircle(_headChecker.position, _headCheckergRadius, _whatIsCell);
         _rigidBody.velocity = new Vector2(_horizontalDirection * _speed, _rigidBody.velocity.y);

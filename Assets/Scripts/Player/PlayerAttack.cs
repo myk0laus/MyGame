@@ -23,15 +23,6 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    //public void AttackButton()
-    //{
-    //    if(_manaController.CurrentMana >= _manaForShot)
-    //    {
-    //        StartAttack();
-    //        _manaController.UseMana(_manaForShot);
-    //    }
-    //}
-
     public void StartAttack()
     {
         if (_isAttacking)
