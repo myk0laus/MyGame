@@ -23,7 +23,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private string _hurtAnimatorKey;
     private float _lastHurtTime;
 
-    public float LastHurtTime 
+    public float LastHurtTime
     {
         get => _lastHurtTime;
         set
@@ -31,7 +31,7 @@ public class PlayerMover : MonoBehaviour
             _lastHurtTime = value;
         }
     }
-    public string HurtAnimatorKey => _hurtAnimatorKey;    
+    public string HurtAnimatorKey => _hurtAnimatorKey;
 
     public Joystick joystick;
     private float _horizontalDirection;
@@ -55,10 +55,10 @@ public class PlayerMover : MonoBehaviour
         if (_animator.GetBool(_hurtAnimatorKey))
         {
             return;
-        }
+        }     
 
-        _horizontalDirection = joystick.Horizontal;
-        _verticaDirection = joystick.Vertical;
+        _horizontalDirection = Input.GetAxis("Horizontal");
+        _verticaDirection = Input.GetAxis("Vertical");
 
         _animator.SetFloat(_runAnimatorKey, Mathf.Abs(_horizontalDirection));
 
@@ -71,12 +71,12 @@ public class PlayerMover : MonoBehaviour
             FlipX();
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    _jump = true;
-        //}
-        //_crawl = Input.GetKey(KeyCode.LeftControl);
-        //_crawl = false;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _jump = true;
+        }
+        _crawl = Input.GetKey(KeyCode.LeftControl);
+        _crawl = false;
     }
 
     private void FixedUpdate()
@@ -85,20 +85,12 @@ public class PlayerMover : MonoBehaviour
 
         if (_animator.GetBool(_hurtAnimatorKey))
         {
-            if(Time.time - _lastHurtTime > 0.2 && canJump)
-            {               
+            if (Time.time - _lastHurtTime > 0.2 && canJump)
+            {
                 _animator.SetBool(_hurtAnimatorKey, false);
             }
             return;
         }
-
-        //if (_animator.GetBool(_hurtAnimationKey))
-        //{
-        //    if (Time.time - _lastPushTime > 0.2f && canJump)
-        //        _animator.SetBool(_hurtAnimationKey, false);
-
-        //    return;
-        //}
 
         bool canStand = !Physics2D.OverlapCircle(_headChecker.position, _headCheckergRadius, _whatIsCell);
         _rigidBody.velocity = new Vector2(_horizontalDirection * _speed, _rigidBody.velocity.y);
@@ -112,7 +104,7 @@ public class PlayerMover : MonoBehaviour
         {
             _rigidBody.gravityScale = 2.5f;
         }
-       
+
         _headCollider.enabled = !_crawl && canStand;
 
         if (_jump && canJump)

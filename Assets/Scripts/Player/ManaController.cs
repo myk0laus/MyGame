@@ -5,30 +5,30 @@ public class ManaController : MonoBehaviour
 {
     [SerializeField] private ManaBar _manaBar;
     [SerializeField] private int _maxMana;
-    private int currentMana;
+    private int _currentMana;
 
-    public int CurrentMana => currentMana;
+    public int CurrentMana => _currentMana;
 
     private void Start()
     {
-        currentMana = _maxMana;
-        _manaBar.SetMaxMana(currentMana);
+        _currentMana = _maxMana;
+        _manaBar.SetMaxMana(_currentMana);
         StartCoroutine(RestoreMana());
     }
 
     public void UseMana(int manaUsed)
     {
-        currentMana -= manaUsed;
-        if (currentMana < 0)
+        _currentMana -= manaUsed;
+        if (_currentMana < 0)
         {
-            currentMana = 0;
+            _currentMana = 0;
         }
-        _manaBar.SetMana(currentMana);
+        _manaBar.SetMana(_currentMana);
     }
 
     public void AddMana(int addMana)
     {
-        int missingMana = _maxMana - currentMana;
+        int missingMana = _maxMana - _currentMana;
         int pointsToAdd = missingMana > addMana ? addMana : missingMana;
         StartCoroutine(AddManaCoroutine(pointsToAdd));
     }
@@ -38,8 +38,8 @@ public class ManaController : MonoBehaviour
         while (addMana != 0)
         {
             addMana--;
-            currentMana++;
-            _manaBar.SetMana(currentMana);
+            _currentMana++;
+            _manaBar.SetMana(_currentMana);
             yield return new WaitForSeconds(0.2f);
         }
     }
@@ -48,10 +48,10 @@ public class ManaController : MonoBehaviour
     {
         while (true)
         {
-            if (currentMana < _maxMana)
+            if (_currentMana < _maxMana)
             {
-                currentMana += 2;
-                _manaBar.SetMana(currentMana);
+                _currentMana += 2;
+                _manaBar.SetMana(_currentMana);
                 yield return new WaitForSeconds(1f);
             }
             else
