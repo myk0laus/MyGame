@@ -26,7 +26,7 @@ public class WallTrap : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        HpManager player = collision.collider.GetComponent<HpManager>();
+        HealthContainer player = collision.collider.GetComponent<HealthContainer>();
         if (player != null)
             player.TakeDamage(_damage);
     }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class Fireball : MonoBehaviour
 {
@@ -7,16 +6,18 @@ public class Fireball : MonoBehaviour
     [SerializeField] private AudioClip _soundExplosion;
     [SerializeField] private GameObject _explosionEffect;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         SoundManager.instance.PlaySound(_soundExplosion);
-        EnemiesController enemy = collision.collider.GetComponent<EnemiesController>();
-        Instantiate(_explosionEffect, transform.position, transform.rotation);
-        if (enemy != null)
+
+        if (collision.TryGetComponent(out IDamageable damageable))
         {
-            enemy.TakeDamage(_damage);
+            Debug.Log("Hit");
+            damageable.ApplyDamage(_damage);
             Destroy(gameObject);
-        }  
+        }
+
+        Instantiate(_explosionEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Fireball _fireball = collision.collider.GetComponent<Fireball>();
-
-        if (_fireball != null)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {       
+        if (collision.TryGetComponent(out Fireball fireball))
         {
             Destroy(gameObject);
         }

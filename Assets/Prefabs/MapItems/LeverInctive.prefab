@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeSprite: {fileID: 21300024, guid: ae3918a914038694d852d0bb81f62473, type: 3}
-  _gates: {fileID: 0}
   _leverActiveSound: {fileID: 8300000, guid: 6d9500fb065d60b498df57f5740b0605, type: 3}
 --- !u!61 &911341309197363500
 BoxCollider2D:

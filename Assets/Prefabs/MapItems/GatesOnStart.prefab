@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5315105487389533814}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.4918, y: -10.998, z: 0}
   m_LocalScale: {x: 0.606806, y: 4.017107, z: 1}
   m_Children:
@@ -49,6 +49,8 @@ MonoBehaviour:
   _posToGo: {fileID: 5315105488396311101}
   _speed: 5
   _gatesOpening: {fileID: 8300000, guid: 28f06d99a9e1a39409b2ecab529d8eee, type: 3}
+  _cardsPanel: {fileID: 0}
+  _canBeOpened: 0
 --- !u!61 &5315105487389533810
 BoxCollider2D:
   m_ObjectHideFlags: 0

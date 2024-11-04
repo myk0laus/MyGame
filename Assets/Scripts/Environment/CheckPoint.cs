@@ -10,6 +10,11 @@ public class CheckPoint : MonoBehaviour
 
     public bool Finished { get; set; }
 
+    private void Start()
+    {
+        Finished = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMover player = collision.GetComponent<PlayerMover>();

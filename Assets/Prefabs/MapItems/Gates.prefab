@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _upPosForGates: {fileID: 3404727969394750825}
   _gatesOpening: {fileID: 8300000, guid: bd9860ba5f15f494b8a089b1f999ee25, type: 3}
+  _lever: {fileID: 0}
+  _speed: 1
 --- !u!61 &3404727969876442379
 BoxCollider2D:
   m_ObjectHideFlags: 0

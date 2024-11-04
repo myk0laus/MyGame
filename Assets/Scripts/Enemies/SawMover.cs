@@ -30,7 +30,7 @@ public class SawMover : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         SoundManager.instance.PlaySound(_sawSounds[Random.Range(0, _sawSounds.Count)]);
-        HpManager player = collision.GetComponent<HpManager>();
+        HealthContainer player = collision.GetComponent<HealthContainer>();
         if (player != null)
         {
             player.TakeDamage(_damage);

@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Start()
     {
         levelUnlock = PlayerPrefs.GetInt("levels", 1);

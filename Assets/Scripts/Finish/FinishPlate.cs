@@ -6,7 +6,7 @@ public class FinishPlate : MonoBehaviour
 {
     [SerializeField] private TMP_Text _finishValue;
     [SerializeField] private GameTimer _gameTimer;
-    [SerializeField] private CardForPlayer _card;
+    //[SerializeField] private CardForPlayer _card;
 
     private void Update()
     {
@@ -17,13 +17,13 @@ public class FinishPlate : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
-        _card.SetCountChoosedZero();
+        //_card.SetCountChoosedZero();
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
-        _card.SetCountChoosedZero();
+        //_card.SetCountChoosedZero();
     }
 }

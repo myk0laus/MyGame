@@ -8,7 +8,6 @@ public class DeadZone : MonoBehaviour
         PlayerMover player = collision.GetComponent<PlayerMover>();
 
         if (player != null)       
-            player._rigidBody.position = _posAffterDead.position;
-        
-    }
+            player.transform.position = _posAffterDead.position;      
+    } 
 }

@@ -132,7 +132,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  fill: {fileID: 836717618}
+  _fillingImage: {fileID: 836717618}
 --- !u!1 &836717616
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1030336536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1551254494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -590,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2032674712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 3126628074787049391}
   - component: {fileID: 3126628074787047504}
   - component: {fileID: 1335150503695545540}
-  - component: {fileID: 3126628074787047509}
+  - component: {fileID: 730241337}
   - component: {fileID: 2911607289719385764}
   - component: {fileID: 3126628074787047505}
   - component: {fileID: 3126628074787047507}
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   __fireballPos: {fileID: 1067863202}
   _speed: 10
   _fireballSound: {fileID: 8300000, guid: a498f72db48e9cb4f92f6d2b34dc0f95, type: 3}
---- !u!114 &3126628074787047509
+--- !u!114 &730241337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1078,12 +1078,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3126628074787049389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191f0aa896ab4cc478dbfd9b889c7840, type: 3}
+  m_Script: {fileID: 11500000, guid: 39aa260d8dcbcc84b8b7bdf2207f3a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bloodPos: {fileID: 8003757774069778032}
   _bloodParticle: {fileID: 2352501072315535430, guid: 528f74edd1186234bab584fdebd74973, type: 3}
-  _hpBar: {fileID: 1127813608}
+  _hpBar: {fileID: 730241341}
   _maxHp: 100
   _takeDamakeSound: {fileID: 8300000, guid: 94415fd0c6fea8b4392249a7e5c68217, type: 3}
 --- !u!114 &2911607289719385764
@@ -1392,7 +1392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3126628075417357133}
   - component: {fileID: 3126628075417357132}
-  - component: {fileID: 1127813608}
+  - component: {fileID: 730241341}
   m_Layer: 5
   m_Name: HpBar
   m_TagString: Untagged
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1127813608
+--- !u!114 &730241341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3126628075417357130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28e425273dd1c4240b66956c468be9a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fcc0bd564b5bc24f883049f1db74ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 3126628075417357132}
@@ -1639,6 +1639,10 @@ PrefabInstance:
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_Name
       value: Fixed Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697096, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_SizeDelta.x
