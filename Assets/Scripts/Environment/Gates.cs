@@ -4,28 +4,31 @@ public class Gates : MonoBehaviour
 {
     [SerializeField] private Transform _upPosForGates;
     [SerializeField] private AudioClip _gatesOpening;
+    [SerializeField] private Lever _lever;
+    [SerializeField] private int _speed;
 
-    private int counter = 0;
+    private Vector2 _moveTo;
+    private bool _activated;
 
-    Vector2 _moveTo;
-    public bool Activated { get; set; }
-    
+    private void OnEnable()
+    {
+        _lever.LeverTurned += OpenGates;
+    }
+
     private void Start()
     {
         _moveTo = _upPosForGates.position;
     }
     private void Update()
     {
-        if (Activated)
-        {
-            counter++;
+        if (_activated)           
+            transform.position = Vector2.MoveTowards(transform.position, _moveTo, _speed * Time.deltaTime);
+    }
 
-            if (counter > 1)
-            {
-                _gatesOpening = null;
-            }
-            SoundManager.instance.PlaySound(_gatesOpening);
-            transform.position = Vector2.MoveTowards(transform.position, _moveTo, 1 * Time.deltaTime);
-        }
+    private void OpenGates()
+    {
+        _activated = true;
+        SoundManager.instance.PlaySound(_gatesOpening);
+        _lever.LeverTurned -= OpenGates;
     }
 }

@@ -5,10 +5,15 @@ public class GatesOnStart : MonoBehaviour
     [SerializeField] private Transform _posToGo;
     [SerializeField] private float _speed;
     [SerializeField] private AudioClip _gatesOpening;
+    [SerializeField] CardsPanel _cardsPanel;
 
-    private int counter = 0;
-    Vector2 _moveTo; 
-    public bool CanMoveUp { get; set; }
+    private Vector2 _moveTo;
+    private bool _canBeOpened;
+
+    private void OnEnable()
+    {
+        _cardsPanel.LevelStarted += OpenGates;
+    }
 
     private void Start()
     {
@@ -17,14 +22,14 @@ public class GatesOnStart : MonoBehaviour
 
     private void Update()
     {
-        if (CanMoveUp)
-        {
-            counter++;
-            SoundManager.instance.PlaySound(_gatesOpening);
-            if (counter > 1)          
-                _gatesOpening = null;
-                        
+        if(_canBeOpened)
             transform.position = Vector2.MoveTowards(transform.position, _moveTo, _speed * Time.deltaTime);
-        }
+    }
+
+    private void OpenGates()
+    {
+        _canBeOpened = true;
+        SoundManager.instance.PlaySound(_gatesOpening);
+        _cardsPanel.LevelStarted-= OpenGates;
     }
 }

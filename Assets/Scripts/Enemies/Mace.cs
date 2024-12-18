@@ -7,7 +7,7 @@ public class Mace : MonoBehaviour
     private float _attackDelay;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        HpManager player = collision.collider.GetComponent<HpManager>();
+        HealthContainer player = collision.collider.GetComponent<HealthContainer>();
         if(player != null)
         {
             player.TakeDamage(_dmg, _pushPower, transform.position.x);

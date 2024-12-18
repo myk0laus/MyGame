@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8547128506055993059}
   - component: {fileID: 8547128506055993058}
   - component: {fileID: 8547128506055993062}
+  - component: {fileID: 4477313271833950386}
   - component: {fileID: 8547128506055993056}
   - component: {fileID: 8547128506055993057}
   - component: {fileID: 8547128506055993086}
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8547128506055993060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -96.91601, y: -37.481552, z: 26.30192}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.1222, y: 4.1222, z: 4.1222}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,14 +99,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50dff1cfca5df45449439fed85dd2302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 100
-  _enemyDeath: {fileID: 8300000, guid: 51caf3e1f8c4444449623c9163b628d5, type: 3}
   _rb: {fileID: 8547128506055993056}
-  _walkRange: 10
+  _walkRange: 6
   _speed: 3
-  _dmg: 0
+  _dmg: 10
   _pushPower: 500
   _faceRight: 1
+--- !u!114 &4477313271833950386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547128506055993060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb30218ee6b98e45b3831a1b4c546d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHp: 100
+  _enemyDeath: {fileID: 8300000, guid: 51caf3e1f8c4444449623c9163b628d5, type: 3}
 --- !u!50 &8547128506055993056
 Rigidbody2D:
   serializedVersion: 4

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PatrolingCrab : EnemiesController
+public class PatrolingCrab : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D _rb;
     [SerializeField] protected float _walkRange;
@@ -11,9 +11,8 @@ public class PatrolingCrab : EnemiesController
     protected float _lastAttackTime;
     protected Vector2 _startPos;
 
-    private void Start()
+    void Start()
     {
-        base.Start();
         _startPos = transform.position;
     }
 
@@ -24,13 +23,13 @@ public class PatrolingCrab : EnemiesController
 
     protected void Update()
     {
-        float xPos = transform.position.x;
+        float currentPosX = transform.position.x;
 
-        if(xPos >= _startPos.x + _walkRange && _faceRight)
+        if(currentPosX >= _startPos.x + _walkRange && _faceRight)
         {
             FlipX();
         }
-        else if (xPos <= _startPos.x - _walkRange && !_faceRight)
+        else if (currentPosX <= _startPos.x - _walkRange && !_faceRight)
         {
             FlipX();
         }
@@ -44,11 +43,16 @@ public class PatrolingCrab : EnemiesController
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        HpManager player = collision.collider.GetComponent<HpManager>();
+        HealthContainer player = collision.collider.GetComponent<HealthContainer>();
         if(player != null && Time.time - _lastAttackTime > 0.5)
         {
             _lastAttackTime = Time.time;
             player.TakeDamage(_dmg, _pushPower, transform.position.x);
         }          
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(_startPos, new Vector3(_walkRange * 2, 1, 0));
     }
 }

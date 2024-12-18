@@ -7,7 +7,7 @@ public class HpPotion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        HpManager player = collision.GetComponent<HpManager>();
+        HealthContainer player = collision.GetComponent<HealthContainer>();
         if (player != null)
         {
             player.AddHp(_hpAmount);
@@ -16,4 +16,3 @@ public class HpPotion : MonoBehaviour
         }
     }
 }
-

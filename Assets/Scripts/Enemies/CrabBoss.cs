@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CrabBoss : PatrolingCrab
 {
     [SerializeField] private Transform[] _spawnPositions;
-    [SerializeField] private CrabChildOfBoss _crabToSpawn;
+    [SerializeField] private PatrolingCrab _crabToSpawn;
     [SerializeField] private int _spawnPushPower;
     [SerializeField] private int _maxCrabs;
     private float _spawnDelay;
 
-    private void Update()
+    private int _spawnedCrabs = 0;
+
+    protected void Update()
     {
         base.Update();
         SpawnCrabs();
@@ -18,9 +18,10 @@ public class CrabBoss : PatrolingCrab
 
     private void SpawnCrabs()
     {
-        if(CrabChildOfBoss.countOfCrabs <= _maxCrabs && Time.time - _spawnDelay > 10)
+        if(_spawnedCrabs <= _maxCrabs && Time.time - _spawnDelay > 5)
         {
             _spawnDelay = Time.time;
+            _spawnedCrabs++;
             Instantiate(_crabToSpawn, _spawnPositions[Random.Range(0, _spawnPositions.Length)].position, Quaternion.identity);
             _crabToSpawn.GetComponent<Rigidbody2D>().AddForce(Vector2.right * _spawnPushPower * Time.deltaTime);
         }

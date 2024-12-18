@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,13 +11,15 @@ public class CardsPanel : MonoBehaviour
     [SerializeField] private int _maxCardsForChoose;
     [SerializeField] private CardForPlayer _card;
     [SerializeField] private GameObject _gameTimer;
-    [SerializeField] private GatesOnStart _gates;
+    //[SerializeField] private GatesOnStart _gates;
+
+    public event Action LevelStarted;
 
     void Start()
     {
         for (int i = 0; i < _maxCards; i++)
         {
-            GameObject someCard = Instantiate(_cards[Random.Range(0, _cards.Count)], _container.position, Quaternion.identity);
+            GameObject someCard = Instantiate(_cards[UnityEngine.Random.Range(0, _cards.Count)], _container.position, Quaternion.identity);
             someCard.transform.SetParent(_container);
         }
     }
@@ -31,7 +34,7 @@ public class CardsPanel : MonoBehaviour
         if (_card.CountChosed >= _maxCardsForChoose)
         {
             Invoke(nameof(InactivePanel), 1f);
-            _gates.CanMoveUp = true;
+            LevelStarted?.Invoke();
             _gameTimer.SetActive(true);
         }
     }

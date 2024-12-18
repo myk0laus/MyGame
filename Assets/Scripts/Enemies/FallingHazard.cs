@@ -23,7 +23,7 @@ public class FallingHazard : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        HpManager player = collision.collider.GetComponent<HpManager>();
+        HealthContainer player = collision.collider.GetComponent<HealthContainer>();
         if(player != null && Time.time - _attackDelay > 0.5)
         {
             _attackDelay = Time.time;
